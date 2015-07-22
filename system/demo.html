@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Demo</title>
+</head>
+<style>
+    #caculator{
+        text-align: center;
+        margin-top: 100px;
+    }
+    input, button, span{
+        padding: 8px;
+    }
+</style>
+<body>
+
+<div id="caculator">
+    <h2>Caculator</h2>
+    <input type="text" class='j-left'> 
+    <button class='j-add'>+</button> 
+    <input type="text" class='j-right'>
+    = 
+    <span class="j-result"></span>
+</div>
+
+<script src="system.js"></script>
+<script>
+
+
+System.paths = {
+    'app/*': "../commonjs/*.js"
+    // 'app/*': "../amd/*.js"
+    // 'app/*': "../es6/*.js"
+}
+
+System.import('app/caculator').then(function( c ) {
+    new c.Caculator( document.getElementById("caculator") )
+}); 
+</script>
+    
+</body>
+</html>
